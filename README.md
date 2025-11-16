@@ -644,7 +644,7 @@ Access: http://localhost:8000/docs
 docker build -t credit-default-api .
 
 # Run
-docker run -p 8000:8000 -e GDRIVE_FOLDER_ID=your_id credit-default-api
+docker run -p 8000:8000 -e GDRIVE_FOLDER_ID=1pkPu7yyj3-DXoNmbd98FXRHogSSkWZOV credit-default-api
 ```
 
 ---
