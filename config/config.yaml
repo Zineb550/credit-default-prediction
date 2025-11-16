@@ -1,0 +1,157 @@
+# Credit Default Prediction - Configuration File
+
+# Data Configuration
+data:
+  train_path: "data/raw/cs-training.csv"
+  test_path: "data/raw/cs-test.csv"
+  processed_train_path: "data/processed/train_processed.csv"
+  processed_test_path: "data/processed/test_processed.csv"
+  target_column: "SeriousDlqin2yrs"
+  random_state: 42
+  test_size: 0.2
+  validation_size: 0.2
+
+# Feature Engineering
+features:
+  categorical_features: []
+  numerical_features:
+    - "RevolvingUtilizationOfUnsecuredLines"
+    - "age"
+    - "NumberOfTime30-59DaysPastDueNotWorse"
+    - "DebtRatio"
+    - "MonthlyIncome"
+    - "NumberOfOpenCreditLinesAndLoans"
+    - "NumberOfTimes90DaysLate"
+    - "NumberRealEstateLoansOrLines"
+    - "NumberOfTime60-89DaysPastDueNotWorse"
+    - "NumberOfDependents"
+  
+  # Feature engineering flags
+  create_interaction_features: true
+  create_polynomial_features: false
+  polynomial_degree: 2
+  
+  # Scaling
+  scaling_method: "standard"  # standard, minmax, robust
+
+# Model Training
+training:
+  # Models to train
+  models:
+    - "logistic_regression"
+    - "random_forest"
+    - "xgboost"
+    - "lightgbm"
+    #- "svm"
+    - "knn"
+    - "neural_network"
+    
+  # Cross-validation
+  cv_folds: 5
+  stratified: true
+  
+  # Class imbalance handling
+  handle_imbalance: true
+  imbalance_method: "smote"  # smote, adasyn, random_oversample, random_undersample
+  
+  # Hyperparameter tuning
+  tune_hyperparameters: false
+  tuning_method: "random_search"  # random_search, grid_search, bayesian
+  n_iter: 10
+  scoring_metric: "roc_auc"
+  
+  # Ensemble methods
+  use_ensemble: true
+  ensemble_methods:
+    - "voting"
+    - "stacking"
+    - "bagging"
+    - "boosting"
+
+# Model-specific hyperparameters
+models:
+  logistic_regression:
+    C: [0.001, 0.01, 0.1, 1, 10, 100]
+    penalty: ["l1", "l2"]
+    solver: ["liblinear", "saga"]
+    max_iter: [1000]
+    class_weight: ["balanced"]
+  
+  random_forest:
+    n_estimators: [100, 200, 300, 500]
+    max_depth: [10, 20, 30, null]
+    min_samples_split: [2, 5, 10]
+    min_samples_leaf: [1, 2, 4]
+    max_features: ["sqrt", "log2"]
+    class_weight: ["balanced", "balanced_subsample"]
+  
+  xgboost:
+    n_estimators: [100, 200, 300]
+    max_depth: [3, 5, 7, 9]
+    learning_rate: [0.01, 0.05, 0.1, 0.3]
+    subsample: [0.6, 0.8, 1.0]
+    colsample_bytree: [0.6, 0.8, 1.0]
+    gamma: [0, 0.1, 0.2]
+    scale_pos_weight: [1, 2, 3, 5]
+  
+  lightgbm:
+    n_estimators: [100, 200, 300]
+    max_depth: [3, 5, 7]
+    learning_rate: [0.01, 0.05, 0.1]
+    num_leaves: [31, 50, 100]
+    subsample: [0.6, 0.8, 1.0]
+    colsample_bytree: [0.6, 0.8, 1.0]
+    is_unbalance: [true]
+  
+  svm:
+    C: [0.1, 1, 10]
+    kernel: ["rbf", "linear"]
+    gamma: ["scale", "auto"]
+    class_weight: ["balanced"]
+  
+  knn:
+    n_neighbors: [3, 5, 7, 9, 11]
+    weights: ["uniform", "distance"]
+    metric: ["euclidean", "manhattan"]
+  
+  neural_network:
+    hidden_layer_sizes: [[64, 32], [128, 64, 32], [256, 128, 64]]
+    activation: ["relu", "tanh"]
+    alpha: [0.0001, 0.001, 0.01]
+    learning_rate: ["constant", "adaptive"]
+    max_iter: [500]
+
+# Evaluation
+evaluation:
+  metrics:
+    - "accuracy"
+    - "precision"
+    - "recall"
+    - "f1"
+    - "roc_auc"
+    - "pr_auc"
+    - "confusion_matrix"
+  
+  threshold_optimization: true
+  cost_sensitive_evaluation: true
+  false_positive_cost: 1
+  false_negative_cost: 5
+
+# Logging
+logging:
+  log_level: "INFO"
+  log_dir: "logs"
+  experiment_name: "credit_default_prediction"
+  
+# Deployment
+deployment:
+  model_registry: "models"
+  best_model_path: "models/best_model.pkl"
+  deployment_platform: "zenml"
+  api_framework: "fastapi"
+  
+# Monitoring
+monitoring:
+  track_data_drift: true
+  track_model_performance: true
+  alert_threshold: 0.05

@@ -1,0 +1,8 @@
+.
+  config
+  data
+    processed
+    raw
+  examples
+  src
+  {src,models,data,notebooks,config,logs,tests}
