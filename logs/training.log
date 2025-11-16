@@ -1,0 +1,574 @@
+2025-11-15 21:09:24,478 - __main__ - INFO - Initialized pipeline: experiment_20251115_210924
+2025-11-15 21:09:24,479 - __main__ - INFO - 
+======================================================================
+2025-11-15 21:09:24,480 - __main__ - INFO - STARTING CREDIT DEFAULT PREDICTION PIPELINE
+2025-11-15 21:09:24,480 - __main__ - INFO - ======================================================================
+2025-11-15 21:09:24,480 - __main__ - INFO - Experiment: experiment_20251115_210924
+2025-11-15 21:09:24,480 - __main__ - INFO - 
+======================================================================
+2025-11-15 21:09:24,481 - __main__ - INFO - STEP 1: LOADING DATA
+2025-11-15 21:09:24,481 - __main__ - INFO - ======================================================================
+2025-11-15 21:09:24,499 - src.preprocessing - INFO - Loading data from D:\MLL\credit_default_prediction\data/raw/cs-training.csv
+2025-11-15 21:09:24,714 - src.preprocessing - INFO - Data loaded. Shape: (150000, 11)
+2025-11-15 21:09:24,714 - __main__ - INFO - 
+======================================================================
+2025-11-15 21:09:24,714 - __main__ - INFO - STEP 2: PREPROCESSING DATA
+2025-11-15 21:09:24,715 - __main__ - INFO - ======================================================================
+2025-11-15 21:09:24,715 - src.preprocessing - INFO - ==================================================
+2025-11-15 21:09:24,715 - src.preprocessing - INFO - Starting preprocessing pipeline...
+2025-11-15 21:09:24,715 - src.preprocessing - INFO - ==================================================
+2025-11-15 21:09:24,715 - src.preprocessing - INFO - Performing exploratory data analysis...
+2025-11-15 21:09:24,836 - src.preprocessing - INFO - Dataset shape: (150000, 11)
+2025-11-15 21:09:24,836 - src.preprocessing - INFO - Target distribution: {0: 139974, 1: 10026}
+2025-11-15 21:09:24,837 - src.preprocessing - INFO - Missing values: {'SeriousDlqin2yrs': 0, 'RevolvingUtilizationOfUnsecuredLines': 0, 'age': 0, 'NumberOfTime30-59DaysPastDueNotWorse': 0, 'DebtRatio': 0, 'MonthlyIncome': 29731, 'NumberOfOpenCreditLinesAndLoans': 0, 'NumberOfTimes90DaysLate': 0, 'NumberRealEstateLoansOrLines': 0, 'NumberOfTime60-89DaysPastDueNotWorse': 0, 'NumberOfDependents': 3924}
+2025-11-15 21:09:24,841 - src.preprocessing - INFO - Handling missing values with strategy: median
+2025-11-15 21:09:25,062 - src.preprocessing - INFO - Missing values handled. New shape: (150000, 11)
+2025-11-15 21:09:25,064 - src.preprocessing - INFO - Handling outliers using iqr method
+2025-11-15 21:09:25,137 - src.preprocessing - INFO - Outliers handled
+2025-11-15 21:09:25,139 - src.preprocessing - INFO - Creating advanced features...
+2025-11-15 21:09:25,189 - src.preprocessing - INFO - Feature engineering completed. New shape: (150000, 29)
+2025-11-15 21:09:25,189 - src.preprocessing - INFO - Splitting data into train and validation sets...
+2025-11-15 21:09:25,296 - src.preprocessing - INFO - Train set: (120000, 28), Validation set: (30000, 28)
+2025-11-15 21:09:25,298 - src.preprocessing - INFO - Train target distribution: {0: 111979, 1: 8021}
+2025-11-15 21:09:25,299 - src.preprocessing - INFO - Validation target distribution: {0: 27995, 1: 2005}
+2025-11-15 21:09:25,303 - src.preprocessing - INFO - Scaling features...
+2025-11-15 21:09:25,406 - src.preprocessing - INFO - Scaling features...
+2025-11-15 21:09:25,419 - src.preprocessing - INFO - Handling class imbalance using smote...
+2025-11-15 21:09:25,421 - src.preprocessing - INFO - Original class distribution: {0: 111979, 1: 8021}
+2025-11-15 21:09:26,049 - src.preprocessing - INFO - Resampled class distribution: {0: 111979, 1: 111979}
+2025-11-15 21:09:26,050 - src.preprocessing - INFO - New shape: (223958, 28)
+2025-11-15 21:09:26,050 - src.preprocessing - INFO - ==================================================
+2025-11-15 21:09:26,054 - src.preprocessing - INFO - Preprocessing completed successfully!
+2025-11-15 21:09:26,056 - src.preprocessing - INFO - ==================================================
+2025-11-15 21:09:26,072 - __main__ - INFO - Preprocessing completed successfully!
+2025-11-15 21:09:26,072 - __main__ - INFO - 
+======================================================================
+2025-11-15 21:09:26,073 - __main__ - INFO - STEP 3: TRAINING MODELS
+2025-11-15 21:09:26,076 - __main__ - INFO - ======================================================================
+2025-11-15 21:09:26,076 - src.model_trainer - INFO - 
+======================================================================
+2025-11-15 21:09:26,077 - src.model_trainer - INFO - STARTING MODEL TRAINING PIPELINE
+2025-11-15 21:09:26,078 - src.model_trainer - INFO - ======================================================================
+2025-11-15 21:09:26,078 - src.model_trainer - INFO - Initialized 6 base models: ['logistic_regression', 'random_forest', 'xgboost', 'lightgbm', 'knn', 'neural_network']
+2025-11-15 21:09:26,079 - src.model_trainer - INFO - 
+==================================================
+2025-11-15 21:09:26,079 - src.model_trainer - INFO - Training logistic_regression...
+2025-11-15 21:09:26,080 - src.model_trainer - INFO - ==================================================
+2025-11-15 21:09:27,326 - src.model_trainer - INFO - logistic_regression - Training completed in 1.25s
+2025-11-15 21:09:27,326 - src.model_trainer - INFO - Train ROC-AUC: 0.7977, Val ROC-AUC: 0.7995
+2025-11-15 21:09:27,327 - src.model_trainer - INFO - Val Precision: 0.1637, Val Recall: 0.7272
+2025-11-15 21:09:27,331 - src.model_trainer - INFO - 
+==================================================
+2025-11-15 21:09:27,332 - src.model_trainer - INFO - Training random_forest...
+2025-11-15 21:09:27,332 - src.model_trainer - INFO - ==================================================
+2025-11-15 21:10:12,071 - src.model_trainer - INFO - random_forest - Training completed in 44.74s
+2025-11-15 21:10:12,075 - src.model_trainer - INFO - Train ROC-AUC: 0.9999, Val ROC-AUC: 0.7526
+2025-11-15 21:10:12,075 - src.model_trainer - INFO - Val Precision: 0.2280, Val Recall: 0.2673
+2025-11-15 21:10:12,075 - src.model_trainer - INFO - 
+==================================================
+2025-11-15 21:10:12,075 - src.model_trainer - INFO - Training xgboost...
+2025-11-15 21:10:12,078 - src.model_trainer - INFO - ==================================================
+2025-11-15 21:10:15,378 - src.model_trainer - INFO - xgboost - Training completed in 3.30s
+2025-11-15 21:10:15,379 - src.model_trainer - INFO - Train ROC-AUC: 0.9797, Val ROC-AUC: 0.7809
+2025-11-15 21:10:15,379 - src.model_trainer - INFO - Val Precision: 0.2820, Val Recall: 0.2628
+2025-11-15 21:10:15,379 - src.model_trainer - INFO - 
+==================================================
+2025-11-15 21:10:15,380 - src.model_trainer - INFO - Training lightgbm...
+2025-11-15 21:10:15,381 - src.model_trainer - INFO - ==================================================
+2025-11-15 21:10:19,384 - src.model_trainer - INFO - lightgbm - Training completed in 4.00s
+2025-11-15 21:10:19,384 - src.model_trainer - INFO - Train ROC-AUC: 0.9788, Val ROC-AUC: 0.7943
+2025-11-15 21:10:19,385 - src.model_trainer - INFO - Val Precision: 0.2887, Val Recall: 0.2788
+2025-11-15 21:10:19,389 - src.model_trainer - INFO - 
+==================================================
+2025-11-15 21:10:19,389 - src.model_trainer - INFO - Training knn...
+2025-11-15 21:10:19,390 - src.model_trainer - INFO - ==================================================
+2025-11-15 21:10:19,461 - src.model_trainer - ERROR - Error training knn: 'Flags' object has no attribute 'c_contiguous'
+2025-11-15 21:10:19,462 - src.model_trainer - INFO - 
+==================================================
+2025-11-15 21:10:19,463 - src.model_trainer - INFO - Training neural_network...
+2025-11-15 21:10:19,466 - src.model_trainer - INFO - ==================================================
+2025-11-15 21:13:16,193 - src.model_trainer - INFO - neural_network - Training completed in 176.73s
+2025-11-15 21:13:16,194 - src.model_trainer - INFO - Train ROC-AUC: 0.8499, Val ROC-AUC: 0.7708
+2025-11-15 21:13:16,194 - src.model_trainer - INFO - Val Precision: 0.1611, Val Recall: 0.6793
+2025-11-15 21:13:16,195 - src.model_trainer - INFO - 
+======================================================================
+2025-11-15 21:13:16,195 - src.model_trainer - INFO - MODEL COMPARISON
+2025-11-15 21:13:16,195 - src.model_trainer - INFO - ======================================================================
+2025-11-15 21:13:16,850 - src.model_trainer - INFO - 
+======================================================================
+2025-11-15 21:13:16,851 - src.model_trainer - INFO - TRAINING ENSEMBLE MODELS
+2025-11-15 21:13:16,852 - src.model_trainer - INFO - ======================================================================
+2025-11-15 21:13:16,852 - src.model_trainer - INFO - 
+==================================================
+2025-11-15 21:13:16,853 - src.model_trainer - INFO - Creating Voting Ensemble...
+2025-11-15 21:13:16,853 - src.model_trainer - INFO - ==================================================
+2025-11-15 21:18:08,061 - src.model_trainer - INFO - 
+==================================================
+2025-11-15 21:18:08,064 - src.model_trainer - INFO - Training voting_hard...
+2025-11-15 21:18:08,064 - src.model_trainer - INFO - ==================================================
+2025-11-15 21:20:25,219 - src.model_trainer - INFO - voting_hard - Training completed in 137.16s
+2025-11-15 21:20:25,219 - src.model_trainer - INFO - Train ROC-AUC: 0.9463, Val ROC-AUC: 0.6479
+2025-11-15 21:20:25,219 - src.model_trainer - INFO - Val Precision: 0.2485, Val Recall: 0.3776
+2025-11-15 21:20:25,219 - src.model_trainer - INFO - 
+==================================================
+2025-11-15 21:20:25,219 - src.model_trainer - INFO - Training voting_soft...
+2025-11-15 21:20:25,235 - src.model_trainer - INFO - ==================================================
+2025-11-15 21:22:40,680 - src.model_trainer - INFO - voting_soft - Training completed in 135.44s
+2025-11-15 21:22:40,680 - src.model_trainer - INFO - Train ROC-AUC: 0.9899, Val ROC-AUC: 0.7977
+2025-11-15 21:22:40,680 - src.model_trainer - INFO - Val Precision: 0.2441, Val Recall: 0.4594
+2025-11-15 21:22:40,681 - src.model_trainer - INFO - 
+==================================================
+2025-11-15 21:22:40,681 - src.model_trainer - INFO - Creating Stacking Ensemble...
+2025-11-15 21:22:40,682 - src.model_trainer - INFO - ==================================================
+2025-11-15 21:31:46,589 - src.model_trainer - INFO - 
+==================================================
+2025-11-15 21:31:46,605 - src.model_trainer - INFO - Training stacking...
+2025-11-15 21:31:46,605 - src.model_trainer - INFO - ==================================================
+2025-11-15 21:39:58,838 - src.model_trainer - INFO - stacking - Training completed in 492.23s
+2025-11-15 21:39:58,838 - src.model_trainer - INFO - Train ROC-AUC: 0.9998, Val ROC-AUC: 0.6475
+2025-11-15 21:39:58,838 - src.model_trainer - INFO - Val Precision: 0.2464, Val Recall: 0.1367
+2025-11-15 21:39:58,838 - src.model_trainer - INFO - 
+==================================================
+2025-11-15 21:39:58,838 - src.model_trainer - INFO - Creating Bagging Ensembles...
+2025-11-15 21:39:58,838 - src.model_trainer - INFO - ==================================================
+2025-11-15 21:40:05,616 - src.model_trainer - INFO - 
+==================================================
+2025-11-15 21:40:05,616 - src.model_trainer - INFO - Training bagging...
+2025-11-15 21:40:05,616 - src.model_trainer - INFO - ==================================================
+2025-11-15 21:40:11,590 - src.model_trainer - INFO - bagging - Training completed in 5.96s
+2025-11-15 21:40:11,590 - src.model_trainer - INFO - Train ROC-AUC: 0.7977, Val ROC-AUC: 0.7995
+2025-11-15 21:40:11,590 - src.model_trainer - INFO - Val Precision: 0.1638, Val Recall: 0.7277
+2025-11-15 21:40:11,590 - src.model_trainer - INFO - 
+==================================================
+2025-11-15 21:40:11,590 - src.model_trainer - INFO - Creating Boosting Ensemble...
+2025-11-15 21:40:11,590 - src.model_trainer - INFO - ==================================================
+2025-11-15 21:43:45,426 - src.model_trainer - INFO - 
+==================================================
+2025-11-15 21:43:45,426 - src.model_trainer - INFO - Training boosting...
+2025-11-15 21:43:45,427 - src.model_trainer - INFO - ==================================================
+2025-11-15 21:48:25,596 - src.model_trainer - INFO - boosting - Training completed in 280.17s
+2025-11-15 21:48:25,596 - src.model_trainer - INFO - Train ROC-AUC: 0.9505, Val ROC-AUC: 0.7794
+2025-11-15 21:48:25,597 - src.model_trainer - INFO - Val Precision: 0.2155, Val Recall: 0.4708
+2025-11-15 21:48:25,598 - src.model_trainer - INFO - 
+======================================================================
+2025-11-15 21:48:25,598 - src.model_trainer - INFO - MODEL COMPARISON
+2025-11-15 21:48:25,598 - src.model_trainer - INFO - ======================================================================
+2025-11-15 21:48:26,101 - __main__ - INFO - 
+======================================================================
+2025-11-15 21:48:26,102 - __main__ - INFO - STEP 4: EVALUATING MODELS
+2025-11-15 21:48:26,102 - __main__ - INFO - ======================================================================
+2025-11-15 21:48:29,098 - __main__ - INFO - ROC curves saved to D:\MLL\credit_default_prediction\results\experiment_20251115_210924_roc_curves.png
+2025-11-15 21:48:30,236 - __main__ - INFO - Precision-Recall curves saved to D:\MLL\credit_default_prediction\results\experiment_20251115_210924_pr_curves.png
+2025-11-15 21:48:36,077 - __main__ - INFO - Confusion matrices saved to D:\MLL\credit_default_prediction\results\experiment_20251115_210924_confusion_matrices.png
+2025-11-15 21:48:36,078 - __main__ - INFO - Evaluation completed!
+2025-11-15 21:48:36,079 - __main__ - INFO - 
+======================================================================
+2025-11-15 21:48:36,090 - __main__ - INFO - STEP 5: SAVING MODELS
+2025-11-15 21:48:36,091 - __main__ - INFO - ======================================================================
+2025-11-15 21:48:36,101 - src.model_trainer - INFO - Model logistic_regression saved to D:\MLL\credit_default_prediction\models/logistic_regression_model.pkl
+2025-11-15 21:48:42,601 - src.model_trainer - INFO - Model random_forest saved to D:\MLL\credit_default_prediction\models/random_forest_model.pkl
+2025-11-15 21:48:42,615 - src.model_trainer - INFO - Model xgboost saved to D:\MLL\credit_default_prediction\models/xgboost_model.pkl
+2025-11-15 21:48:42,634 - src.model_trainer - INFO - Model lightgbm saved to D:\MLL\credit_default_prediction\models/lightgbm_model.pkl
+2025-11-15 21:48:42,648 - src.model_trainer - INFO - Model neural_network saved to D:\MLL\credit_default_prediction\models/neural_network_model.pkl
+2025-11-15 21:48:55,631 - src.model_trainer - INFO - Model voting_hard saved to D:\MLL\credit_default_prediction\models/voting_hard_model.pkl
+2025-11-15 21:49:07,964 - src.model_trainer - INFO - Model voting_soft saved to D:\MLL\credit_default_prediction\models/voting_soft_model.pkl
+2025-11-15 21:49:19,867 - src.model_trainer - INFO - Model stacking saved to D:\MLL\credit_default_prediction\models/stacking_model.pkl
+2025-11-15 21:49:19,880 - src.model_trainer - INFO - Model bagging saved to D:\MLL\credit_default_prediction\models/bagging_model.pkl
+2025-11-15 21:49:19,938 - src.model_trainer - INFO - Model boosting saved to D:\MLL\credit_default_prediction\models/boosting_model.pkl
+2025-11-15 21:49:19,941 - src.model_trainer - INFO - Model logistic_regression saved to D:\MLL\credit_default_prediction\models/best_model.pkl
+2025-11-15 21:49:41,803 - src.model_trainer - INFO - All models and results saved to D:\MLL\credit_default_prediction\models
+2025-11-15 21:49:41,811 - src.preprocessing - INFO - Preprocessor saved to D:\MLL\credit_default_prediction\models\preprocessor.pkl
+2025-11-15 21:49:41,811 - __main__ - INFO - All models and artifacts saved successfully!
+2025-11-15 21:49:41,817 - __main__ - INFO - 
+======================================================================
+2025-11-15 21:49:41,818 - __main__ - INFO - PIPELINE COMPLETED SUCCESSFULLY!
+2025-11-15 21:49:41,818 - __main__ - INFO - ======================================================================
+2025-11-15 21:49:41,820 - __main__ - INFO - Total execution time: 2417.34 seconds
+2025-11-15 21:49:41,823 - __main__ - INFO - Experiment: experiment_20251115_210924
+2025-11-15 21:49:41,833 - __main__ - INFO - Best model: logistic_regression
+2025-11-15 21:49:41,833 - __main__ - INFO - Best ROC-AUC: 0.7995
+2025-11-15 21:49:41,834 - __main__ - INFO - ======================================================================
+2025-11-16 01:06:57,963 - __main__ - INFO - Initialized pipeline: experiment_20251116_010657
+2025-11-16 01:06:57,971 - __main__ - INFO - 
+======================================================================
+2025-11-16 01:06:57,973 - __main__ - INFO - STARTING CREDIT DEFAULT PREDICTION PIPELINE
+2025-11-16 01:06:57,976 - __main__ - INFO - ======================================================================
+2025-11-16 01:06:57,976 - __main__ - INFO - Experiment: experiment_20251116_010657
+2025-11-16 01:06:57,977 - __main__ - INFO - 
+======================================================================
+2025-11-16 01:06:57,977 - __main__ - INFO - STEP 1: LOADING DATA
+2025-11-16 01:06:57,978 - __main__ - INFO - ======================================================================
+2025-11-16 01:06:57,978 - src.preprocessing - INFO - Loading data from D:\MLL\credit_default_prediction\data/raw/cs-training.csv
+2025-11-16 01:06:58,192 - src.preprocessing - INFO - Data loaded. Shape: (150000, 11)
+2025-11-16 01:06:58,193 - __main__ - INFO - 
+======================================================================
+2025-11-16 01:06:58,194 - __main__ - INFO - STEP 2: PREPROCESSING DATA
+2025-11-16 01:06:58,197 - __main__ - INFO - ======================================================================
+2025-11-16 01:06:58,198 - src.preprocessing - INFO - ==================================================
+2025-11-16 01:06:58,199 - src.preprocessing - INFO - Starting preprocessing pipeline...
+2025-11-16 01:06:58,199 - src.preprocessing - INFO - ==================================================
+2025-11-16 01:06:58,200 - src.preprocessing - INFO - Performing exploratory data analysis...
+2025-11-16 01:06:58,349 - src.preprocessing - INFO - Dataset shape: (150000, 11)
+2025-11-16 01:06:58,350 - src.preprocessing - INFO - Target distribution: {0: 139974, 1: 10026}
+2025-11-16 01:06:58,351 - src.preprocessing - INFO - Missing values: {'SeriousDlqin2yrs': 0, 'RevolvingUtilizationOfUnsecuredLines': 0, 'age': 0, 'NumberOfTime30-59DaysPastDueNotWorse': 0, 'DebtRatio': 0, 'MonthlyIncome': 29731, 'NumberOfOpenCreditLinesAndLoans': 0, 'NumberOfTimes90DaysLate': 0, 'NumberRealEstateLoansOrLines': 0, 'NumberOfTime60-89DaysPastDueNotWorse': 0, 'NumberOfDependents': 3924}
+2025-11-16 01:06:58,354 - src.preprocessing - INFO - Handling missing values with strategy: median
+2025-11-16 01:06:58,608 - src.preprocessing - INFO - Missing values handled. New shape: (150000, 11)
+2025-11-16 01:06:58,611 - src.preprocessing - INFO - Handling outliers using iqr method
+2025-11-16 01:06:58,699 - src.preprocessing - INFO - Outliers handled
+2025-11-16 01:06:58,701 - src.preprocessing - INFO - Creating advanced features...
+2025-11-16 01:06:58,766 - src.preprocessing - INFO - Feature engineering completed. New shape: (150000, 29)
+2025-11-16 01:06:58,767 - src.preprocessing - INFO - Splitting data into train and validation sets...
+2025-11-16 01:06:58,875 - src.preprocessing - INFO - Train set: (120000, 28), Validation set: (30000, 28)
+2025-11-16 01:06:58,877 - src.preprocessing - INFO - Train target distribution: {0: 111979, 1: 8021}
+2025-11-16 01:06:58,878 - src.preprocessing - INFO - Validation target distribution: {0: 27995, 1: 2005}
+2025-11-16 01:06:58,882 - src.preprocessing - INFO - Scaling features...
+2025-11-16 01:06:58,989 - src.preprocessing - INFO - Scaling features...
+2025-11-16 01:06:59,002 - src.preprocessing - INFO - Handling class imbalance using smote...
+2025-11-16 01:06:59,004 - src.preprocessing - INFO - Original class distribution: {0: 111979, 1: 8021}
+2025-11-16 01:06:59,813 - src.preprocessing - INFO - Reducing resampled data from 223958 to 50000 samples to prevent overfitting
+2025-11-16 01:06:59,876 - src.preprocessing - INFO - Reduced resampled class distribution: {0: 25000, 1: 25000}
+2025-11-16 01:06:59,878 - src.preprocessing - INFO - Resampled class distribution: {0: 25000, 1: 25000}
+2025-11-16 01:06:59,879 - src.preprocessing - INFO - Resampled class distribution: {0: 25000, 1: 25000}
+2025-11-16 01:06:59,882 - src.preprocessing - INFO - New shape: (50000, 28)
+2025-11-16 01:06:59,883 - src.preprocessing - INFO - ==================================================
+2025-11-16 01:06:59,883 - src.preprocessing - INFO - Preprocessing completed successfully!
+2025-11-16 01:06:59,883 - src.preprocessing - INFO - ==================================================
+2025-11-16 01:06:59,898 - __main__ - INFO - Preprocessing completed successfully!
+2025-11-16 01:06:59,899 - __main__ - INFO - 
+======================================================================
+2025-11-16 01:06:59,899 - __main__ - INFO - STEP 3: TRAINING MODELS
+2025-11-16 01:06:59,902 - __main__ - INFO - ======================================================================
+2025-11-16 01:06:59,903 - src.model_trainer - INFO - 
+======================================================================
+2025-11-16 01:06:59,904 - src.model_trainer - INFO - STARTING MODEL TRAINING PIPELINE
+2025-11-16 01:06:59,905 - src.model_trainer - INFO - ======================================================================
+2025-11-16 01:06:59,905 - src.model_trainer - INFO - Initialized 6 base models: ['logistic_regression', 'random_forest', 'xgboost', 'lightgbm', 'knn', 'neural_network']
+2025-11-16 01:06:59,906 - src.model_trainer - INFO - 
+==================================================
+2025-11-16 01:06:59,906 - src.model_trainer - INFO - Training logistic_regression...
+2025-11-16 01:06:59,907 - src.model_trainer - INFO - ==================================================
+2025-11-16 01:07:00,581 - src.model_trainer - INFO - logistic_regression - Training completed in 0.67s
+2025-11-16 01:07:00,581 - src.model_trainer - INFO - Train ROC-AUC: 0.7980, Val ROC-AUC: 0.7997
+2025-11-16 01:07:00,583 - src.model_trainer - INFO - Val Precision: 0.1649, Val Recall: 0.7267
+2025-11-16 01:07:00,587 - src.model_trainer - INFO - 
+==================================================
+2025-11-16 01:07:00,587 - src.model_trainer - INFO - Training random_forest...
+2025-11-16 01:07:00,588 - src.model_trainer - INFO - ==================================================
+2025-11-16 01:07:09,723 - src.model_trainer - INFO - random_forest - Training completed in 9.13s
+2025-11-16 01:07:09,724 - src.model_trainer - INFO - Train ROC-AUC: 0.9999, Val ROC-AUC: 0.7669
+2025-11-16 01:07:09,725 - src.model_trainer - INFO - Val Precision: 0.1960, Val Recall: 0.4743
+2025-11-16 01:07:09,728 - src.model_trainer - INFO - 
+==================================================
+2025-11-16 01:07:09,729 - src.model_trainer - INFO - Training xgboost...
+2025-11-16 01:07:09,729 - src.model_trainer - INFO - ==================================================
+2025-11-16 01:07:11,089 - src.model_trainer - INFO - xgboost - Training completed in 1.36s
+2025-11-16 01:07:11,089 - src.model_trainer - INFO - Train ROC-AUC: 0.9876, Val ROC-AUC: 0.7757
+2025-11-16 01:07:11,090 - src.model_trainer - INFO - Val Precision: 0.2594, Val Recall: 0.2933
+2025-11-16 01:07:11,095 - src.model_trainer - INFO - 
+==================================================
+2025-11-16 01:07:11,095 - src.model_trainer - INFO - Training lightgbm...
+2025-11-16 01:07:11,095 - src.model_trainer - INFO - ==================================================
+2025-11-16 01:07:12,497 - src.model_trainer - INFO - lightgbm - Training completed in 1.40s
+2025-11-16 01:07:12,498 - src.model_trainer - INFO - Train ROC-AUC: 0.9807, Val ROC-AUC: 0.7955
+2025-11-16 01:07:12,499 - src.model_trainer - INFO - Val Precision: 0.2772, Val Recall: 0.3232
+2025-11-16 01:07:12,502 - src.model_trainer - INFO - 
+==================================================
+2025-11-16 01:07:12,503 - src.model_trainer - INFO - Training knn...
+2025-11-16 01:07:12,503 - src.model_trainer - INFO - ==================================================
+2025-11-16 01:07:12,534 - src.model_trainer - ERROR - Error training knn: 'Flags' object has no attribute 'c_contiguous'
+2025-11-16 01:07:12,535 - src.model_trainer - INFO - 
+==================================================
+2025-11-16 01:07:12,536 - src.model_trainer - INFO - Training neural_network...
+2025-11-16 01:07:12,539 - src.model_trainer - INFO - ==================================================
+2025-11-16 01:07:34,629 - src.model_trainer - INFO - neural_network - Training completed in 22.09s
+2025-11-16 01:07:34,630 - src.model_trainer - INFO - Train ROC-AUC: 0.8299, Val ROC-AUC: 0.7934
+2025-11-16 01:07:34,631 - src.model_trainer - INFO - Val Precision: 0.1621, Val Recall: 0.7152
+2025-11-16 01:07:34,635 - src.model_trainer - INFO - 
+======================================================================
+2025-11-16 01:07:34,635 - src.model_trainer - INFO - MODEL COMPARISON
+2025-11-16 01:07:34,636 - src.model_trainer - INFO - ======================================================================
+2025-11-16 01:07:35,053 - src.model_trainer - INFO - 
+======================================================================
+2025-11-16 01:07:35,053 - src.model_trainer - INFO - TRAINING ENSEMBLE MODELS
+2025-11-16 01:07:35,054 - src.model_trainer - INFO - ======================================================================
+2025-11-16 01:07:35,055 - src.model_trainer - INFO - 
+==================================================
+2025-11-16 01:07:35,055 - src.model_trainer - INFO - Creating Voting Ensemble...
+2025-11-16 01:07:35,056 - src.model_trainer - INFO - ==================================================
+2025-11-16 01:08:22,118 - src.model_trainer - INFO - 
+==================================================
+2025-11-16 01:08:22,119 - src.model_trainer - INFO - Training voting_hard...
+2025-11-16 01:08:22,121 - src.model_trainer - INFO - ==================================================
+2025-11-16 01:08:46,576 - src.model_trainer - INFO - voting_hard - Training completed in 24.45s
+2025-11-16 01:08:46,577 - src.model_trainer - INFO - Train ROC-AUC: 0.9441, Val ROC-AUC: 0.6950
+2025-11-16 01:08:46,579 - src.model_trainer - INFO - Val Precision: 0.2173, Val Recall: 0.5257
+2025-11-16 01:08:46,582 - src.model_trainer - INFO - 
+==================================================
+2025-11-16 01:08:46,583 - src.model_trainer - INFO - Training voting_soft...
+2025-11-16 01:08:46,583 - src.model_trainer - INFO - ==================================================
+2025-11-16 01:09:12,521 - src.model_trainer - INFO - voting_soft - Training completed in 25.94s
+2025-11-16 01:09:12,522 - src.model_trainer - INFO - Train ROC-AUC: 0.9895, Val ROC-AUC: 0.8011
+2025-11-16 01:09:12,523 - src.model_trainer - INFO - Val Precision: 0.2253, Val Recall: 0.5411
+2025-11-16 01:09:12,524 - src.model_trainer - INFO - 
+==================================================
+2025-11-16 01:09:12,527 - src.model_trainer - INFO - Creating Stacking Ensemble...
+2025-11-16 01:09:12,527 - src.model_trainer - INFO - ==================================================
+2025-11-16 01:10:57,988 - src.model_trainer - INFO - 
+==================================================
+2025-11-16 01:10:57,988 - src.model_trainer - INFO - Training stacking...
+2025-11-16 01:10:57,989 - src.model_trainer - INFO - ==================================================
+2025-11-16 01:12:47,002 - src.model_trainer - INFO - stacking - Training completed in 109.01s
+2025-11-16 01:12:47,002 - src.model_trainer - INFO - Train ROC-AUC: 0.9999, Val ROC-AUC: 0.6892
+2025-11-16 01:12:47,003 - src.model_trainer - INFO - Val Precision: 0.2643, Val Recall: 0.2329
+2025-11-16 01:12:47,003 - src.model_trainer - INFO - 
+==================================================
+2025-11-16 01:12:47,003 - src.model_trainer - INFO - Creating Bagging Ensembles...
+2025-11-16 01:12:47,004 - src.model_trainer - INFO - ==================================================
+2025-11-16 01:12:48,239 - src.model_trainer - INFO - 
+==================================================
+2025-11-16 01:12:48,239 - src.model_trainer - INFO - Training bagging...
+2025-11-16 01:12:48,241 - src.model_trainer - INFO - ==================================================
+2025-11-16 01:12:50,421 - src.model_trainer - INFO - bagging - Training completed in 2.18s
+2025-11-16 01:12:50,421 - src.model_trainer - INFO - Train ROC-AUC: 0.7980, Val ROC-AUC: 0.7999
+2025-11-16 01:12:50,423 - src.model_trainer - INFO - Val Precision: 0.1648, Val Recall: 0.7267
+2025-11-16 01:12:50,424 - src.model_trainer - INFO - 
+==================================================
+2025-11-16 01:12:50,424 - src.model_trainer - INFO - Creating Boosting Ensemble...
+2025-11-16 01:12:50,424 - src.model_trainer - INFO - ==================================================
+2025-11-16 01:13:35,488 - src.model_trainer - INFO - 
+==================================================
+2025-11-16 01:13:35,488 - src.model_trainer - INFO - Training boosting...
+2025-11-16 01:13:35,489 - src.model_trainer - INFO - ==================================================
+2025-11-16 01:14:23,826 - src.model_trainer - INFO - boosting - Training completed in 48.34s
+2025-11-16 01:14:23,826 - src.model_trainer - INFO - Train ROC-AUC: 0.9480, Val ROC-AUC: 0.7851
+2025-11-16 01:14:23,827 - src.model_trainer - INFO - Val Precision: 0.2277, Val Recall: 0.4998
+2025-11-16 01:14:23,827 - src.model_trainer - INFO - 
+======================================================================
+2025-11-16 01:14:23,828 - src.model_trainer - INFO - MODEL COMPARISON
+2025-11-16 01:14:23,828 - src.model_trainer - INFO - ======================================================================
+2025-11-16 01:14:24,040 - __main__ - INFO - 
+======================================================================
+2025-11-16 01:14:24,040 - __main__ - INFO - STEP 4: EVALUATING MODELS
+2025-11-16 01:14:24,040 - __main__ - INFO - ======================================================================
+2025-11-16 01:14:26,078 - __main__ - INFO - ROC curves saved to D:\MLL\credit_default_prediction\results\experiment_20251116_010657_roc_curves.png
+2025-11-16 01:14:27,361 - __main__ - INFO - Precision-Recall curves saved to D:\MLL\credit_default_prediction\results\experiment_20251116_010657_pr_curves.png
+2025-11-16 01:14:32,710 - __main__ - INFO - Confusion matrices saved to D:\MLL\credit_default_prediction\results\experiment_20251116_010657_confusion_matrices.png
+2025-11-16 01:14:32,711 - __main__ - INFO - Evaluation completed!
+2025-11-16 01:14:32,711 - __main__ - INFO - 
+======================================================================
+2025-11-16 01:14:32,711 - __main__ - INFO - STEP 5: SAVING MODELS
+2025-11-16 01:14:32,711 - __main__ - INFO - ======================================================================
+2025-11-16 01:14:32,721 - src.model_trainer - INFO - Model logistic_regression saved to D:\MLL\credit_default_prediction\models/logistic_regression_model.pkl
+2025-11-16 01:14:34,289 - src.model_trainer - INFO - Model random_forest saved to D:\MLL\credit_default_prediction\models/random_forest_model.pkl
+2025-11-16 01:14:34,299 - src.model_trainer - INFO - Model xgboost saved to D:\MLL\credit_default_prediction\models/xgboost_model.pkl
+2025-11-16 01:14:34,312 - src.model_trainer - INFO - Model lightgbm saved to D:\MLL\credit_default_prediction\models/lightgbm_model.pkl
+2025-11-16 01:14:34,323 - src.model_trainer - INFO - Model neural_network saved to D:\MLL\credit_default_prediction\models/neural_network_model.pkl
+2025-11-16 01:14:39,478 - src.model_trainer - INFO - Model voting_hard saved to D:\MLL\credit_default_prediction\models/voting_hard_model.pkl
+2025-11-16 01:14:42,940 - src.model_trainer - INFO - Model voting_soft saved to D:\MLL\credit_default_prediction\models/voting_soft_model.pkl
+2025-11-16 01:14:46,339 - src.model_trainer - INFO - Model stacking saved to D:\MLL\credit_default_prediction\models/stacking_model.pkl
+2025-11-16 01:14:46,350 - src.model_trainer - INFO - Model bagging saved to D:\MLL\credit_default_prediction\models/bagging_model.pkl
+2025-11-16 01:14:46,400 - src.model_trainer - INFO - Model boosting saved to D:\MLL\credit_default_prediction\models/boosting_model.pkl
+2025-11-16 01:14:49,502 - src.model_trainer - INFO - Model voting_soft saved to D:\MLL\credit_default_prediction\models/best_model.pkl
+2025-11-16 01:14:56,694 - src.model_trainer - INFO - All models and results saved to D:\MLL\credit_default_prediction\models
+2025-11-16 01:14:56,698 - src.preprocessing - INFO - Preprocessor saved to D:\MLL\credit_default_prediction\models\preprocessor.pkl
+2025-11-16 01:14:56,698 - __main__ - INFO - All models and artifacts saved successfully!
+2025-11-16 01:14:56,699 - __main__ - INFO - 
+======================================================================
+2025-11-16 01:14:56,699 - __main__ - INFO - PIPELINE COMPLETED SUCCESSFULLY!
+2025-11-16 01:14:56,699 - __main__ - INFO - ======================================================================
+2025-11-16 01:14:56,700 - __main__ - INFO - Total execution time: 478.72 seconds
+2025-11-16 01:14:56,700 - __main__ - INFO - Experiment: experiment_20251116_010657
+2025-11-16 01:14:56,700 - __main__ - INFO - Best model: voting_soft
+2025-11-16 01:14:56,701 - __main__ - INFO - Best ROC-AUC: 0.8011
+2025-11-16 01:14:56,701 - __main__ - INFO - ======================================================================
+2025-11-16 01:26:40,799 - __main__ - INFO - Initialized pipeline: experiment_20251116_012640
+2025-11-16 01:26:40,799 - __main__ - INFO - 
+======================================================================
+2025-11-16 01:26:40,800 - __main__ - INFO - STARTING CREDIT DEFAULT PREDICTION PIPELINE
+2025-11-16 01:26:40,800 - __main__ - INFO - ======================================================================
+2025-11-16 01:26:40,800 - __main__ - INFO - Experiment: experiment_20251116_012640
+2025-11-16 01:26:40,800 - __main__ - INFO - 
+======================================================================
+2025-11-16 01:26:40,800 - __main__ - INFO - STEP 1: LOADING DATA
+2025-11-16 01:26:40,800 - __main__ - INFO - ======================================================================
+2025-11-16 01:26:40,801 - src.preprocessing - INFO - Loading data from D:\MLL\credit_default_prediction\data/raw/cs-training.csv
+2025-11-16 01:26:41,048 - src.preprocessing - INFO - Data loaded. Shape: (150000, 11)
+2025-11-16 01:26:41,049 - __main__ - INFO - 
+======================================================================
+2025-11-16 01:26:41,049 - __main__ - INFO - STEP 2: PREPROCESSING DATA
+2025-11-16 01:26:41,049 - __main__ - INFO - ======================================================================
+2025-11-16 01:26:41,049 - src.preprocessing - INFO - ==================================================
+2025-11-16 01:26:41,050 - src.preprocessing - INFO - Starting preprocessing pipeline...
+2025-11-16 01:26:41,051 - src.preprocessing - INFO - ==================================================
+2025-11-16 01:26:41,052 - src.preprocessing - INFO - Performing exploratory data analysis...
+2025-11-16 01:26:41,223 - src.preprocessing - INFO - Dataset shape: (150000, 11)
+2025-11-16 01:26:41,224 - src.preprocessing - INFO - Target distribution: {0: 139974, 1: 10026}
+2025-11-16 01:26:41,226 - src.preprocessing - INFO - Missing values: {'SeriousDlqin2yrs': 0, 'RevolvingUtilizationOfUnsecuredLines': 0, 'age': 0, 'NumberOfTime30-59DaysPastDueNotWorse': 0, 'DebtRatio': 0, 'MonthlyIncome': 29731, 'NumberOfOpenCreditLinesAndLoans': 0, 'NumberOfTimes90DaysLate': 0, 'NumberRealEstateLoansOrLines': 0, 'NumberOfTime60-89DaysPastDueNotWorse': 0, 'NumberOfDependents': 3924}
+2025-11-16 01:26:41,231 - src.preprocessing - INFO - Handling missing values with strategy: median
+2025-11-16 01:26:41,482 - src.preprocessing - INFO - Missing values handled. New shape: (150000, 11)
+2025-11-16 01:26:41,484 - src.preprocessing - INFO - Handling outliers using iqr method
+2025-11-16 01:26:41,555 - src.preprocessing - INFO - Outliers handled
+2025-11-16 01:26:41,556 - src.preprocessing - INFO - Creating advanced features...
+2025-11-16 01:26:41,607 - src.preprocessing - INFO - Feature engineering completed. New shape: (150000, 29)
+2025-11-16 01:26:41,607 - src.preprocessing - INFO - Splitting data into train and validation sets...
+2025-11-16 01:26:41,718 - src.preprocessing - INFO - Train set: (120000, 28), Validation set: (30000, 28)
+2025-11-16 01:26:41,719 - src.preprocessing - INFO - Train target distribution: {0: 111979, 1: 8021}
+2025-11-16 01:26:41,720 - src.preprocessing - INFO - Validation target distribution: {0: 27995, 1: 2005}
+2025-11-16 01:26:41,725 - src.preprocessing - INFO - Scaling features...
+2025-11-16 01:26:41,829 - src.preprocessing - INFO - Scaling features...
+2025-11-16 01:26:41,840 - src.preprocessing - INFO - Handling class imbalance using smote...
+2025-11-16 01:26:41,841 - src.preprocessing - INFO - Original class distribution: {0: 111979, 1: 8021}
+2025-11-16 01:26:42,674 - src.preprocessing - INFO - Reducing resampled data from 223958 to 50000 samples to prevent overfitting
+2025-11-16 01:26:42,731 - src.preprocessing - INFO - Resampled class distribution: {0: 25000, 1: 25000}
+2025-11-16 01:26:42,731 - src.preprocessing - INFO - New shape: (50000, 28)
+2025-11-16 01:26:42,733 - src.preprocessing - INFO - ==================================================
+2025-11-16 01:26:42,733 - src.preprocessing - INFO - Preprocessing completed successfully!
+2025-11-16 01:26:42,736 - src.preprocessing - INFO - ==================================================
+2025-11-16 01:26:42,745 - __main__ - INFO - Preprocessing completed successfully!
+2025-11-16 01:26:42,745 - __main__ - INFO - 
+======================================================================
+2025-11-16 01:26:42,746 - __main__ - INFO - STEP 3: TRAINING MODELS
+2025-11-16 01:26:42,747 - __main__ - INFO - ======================================================================
+2025-11-16 01:26:42,747 - src.model_trainer - INFO - 
+======================================================================
+2025-11-16 01:26:42,748 - src.model_trainer - INFO - STARTING MODEL TRAINING PIPELINE
+2025-11-16 01:26:42,748 - src.model_trainer - INFO - ======================================================================
+2025-11-16 01:26:42,749 - src.model_trainer - INFO - Initialized 6 base models: ['logistic_regression', 'random_forest', 'xgboost', 'lightgbm', 'knn', 'neural_network']
+2025-11-16 01:26:42,749 - src.model_trainer - INFO - 
+==================================================
+2025-11-16 01:26:42,749 - src.model_trainer - INFO - Training logistic_regression...
+2025-11-16 01:26:42,750 - src.model_trainer - INFO - ==================================================
+2025-11-16 01:26:43,090 - src.model_trainer - INFO - logistic_regression - Training completed in 0.34s
+2025-11-16 01:26:43,090 - src.model_trainer - INFO - Train ROC-AUC: 0.7980, Val ROC-AUC: 0.7997
+2025-11-16 01:26:43,091 - src.model_trainer - INFO - Val Precision: 0.1649, Val Recall: 0.7267
+2025-11-16 01:26:43,095 - src.model_trainer - INFO - 
+==================================================
+2025-11-16 01:26:43,095 - src.model_trainer - INFO - Training random_forest...
+2025-11-16 01:26:43,097 - src.model_trainer - INFO - ==================================================
+2025-11-16 01:26:51,428 - src.model_trainer - INFO - random_forest - Training completed in 8.33s
+2025-11-16 01:26:51,428 - src.model_trainer - INFO - Train ROC-AUC: 0.9999, Val ROC-AUC: 0.7669
+2025-11-16 01:26:51,431 - src.model_trainer - INFO - Val Precision: 0.1960, Val Recall: 0.4743
+2025-11-16 01:26:51,434 - src.model_trainer - INFO - 
+==================================================
+2025-11-16 01:26:51,435 - src.model_trainer - INFO - Training xgboost...
+2025-11-16 01:26:51,435 - src.model_trainer - INFO - ==================================================
+2025-11-16 01:26:52,426 - src.model_trainer - INFO - xgboost - Training completed in 0.99s
+2025-11-16 01:26:52,427 - src.model_trainer - INFO - Train ROC-AUC: 0.9876, Val ROC-AUC: 0.7757
+2025-11-16 01:26:52,428 - src.model_trainer - INFO - Val Precision: 0.2594, Val Recall: 0.2933
+2025-11-16 01:26:52,428 - src.model_trainer - INFO - 
+==================================================
+2025-11-16 01:26:52,432 - src.model_trainer - INFO - Training lightgbm...
+2025-11-16 01:26:52,434 - src.model_trainer - INFO - ==================================================
+2025-11-16 01:26:53,572 - src.model_trainer - INFO - lightgbm - Training completed in 1.13s
+2025-11-16 01:26:53,572 - src.model_trainer - INFO - Train ROC-AUC: 0.9807, Val ROC-AUC: 0.7955
+2025-11-16 01:26:53,573 - src.model_trainer - INFO - Val Precision: 0.2772, Val Recall: 0.3232
+2025-11-16 01:26:53,576 - src.model_trainer - INFO - 
+==================================================
+2025-11-16 01:26:53,577 - src.model_trainer - INFO - Training knn...
+2025-11-16 01:26:53,578 - src.model_trainer - INFO - ==================================================
+2025-11-16 01:26:53,597 - src.model_trainer - ERROR - Error training knn: 'Flags' object has no attribute 'c_contiguous'
+2025-11-16 01:26:53,598 - src.model_trainer - INFO - 
+==================================================
+2025-11-16 01:26:53,598 - src.model_trainer - INFO - Training neural_network...
+2025-11-16 01:26:53,599 - src.model_trainer - INFO - ==================================================
+2025-11-16 01:27:13,813 - src.model_trainer - INFO - neural_network - Training completed in 20.21s
+2025-11-16 01:27:13,813 - src.model_trainer - INFO - Train ROC-AUC: 0.8299, Val ROC-AUC: 0.7934
+2025-11-16 01:27:13,814 - src.model_trainer - INFO - Val Precision: 0.1621, Val Recall: 0.7152
+2025-11-16 01:27:13,817 - src.model_trainer - INFO - 
+======================================================================
+2025-11-16 01:27:13,818 - src.model_trainer - INFO - MODEL COMPARISON
+2025-11-16 01:27:13,818 - src.model_trainer - INFO - ======================================================================
+2025-11-16 01:27:14,193 - src.model_trainer - INFO - 
+======================================================================
+2025-11-16 01:27:14,194 - src.model_trainer - INFO - TRAINING ENSEMBLE MODELS
+2025-11-16 01:27:14,194 - src.model_trainer - INFO - ======================================================================
+2025-11-16 01:27:14,195 - src.model_trainer - INFO - 
+==================================================
+2025-11-16 01:27:14,196 - src.model_trainer - INFO - Creating Voting Ensemble...
+2025-11-16 01:27:14,200 - src.model_trainer - INFO - ==================================================
+2025-11-16 01:27:51,821 - src.model_trainer - INFO - 
+==================================================
+2025-11-16 01:27:51,822 - src.model_trainer - INFO - Training voting_hard...
+2025-11-16 01:27:51,823 - src.model_trainer - INFO - ==================================================
+2025-11-16 01:28:11,207 - src.model_trainer - INFO - voting_hard - Training completed in 19.38s
+2025-11-16 01:28:11,208 - src.model_trainer - INFO - Train ROC-AUC: 0.9441, Val ROC-AUC: 0.6950
+2025-11-16 01:28:11,210 - src.model_trainer - INFO - Val Precision: 0.2173, Val Recall: 0.5257
+2025-11-16 01:28:11,214 - src.model_trainer - INFO - 
+==================================================
+2025-11-16 01:28:11,215 - src.model_trainer - INFO - Training voting_soft...
+2025-11-16 01:28:11,216 - src.model_trainer - INFO - ==================================================
+2025-11-16 01:28:32,746 - src.model_trainer - INFO - voting_soft - Training completed in 21.53s
+2025-11-16 01:28:32,746 - src.model_trainer - INFO - Train ROC-AUC: 0.9895, Val ROC-AUC: 0.8011
+2025-11-16 01:28:32,747 - src.model_trainer - INFO - Val Precision: 0.2253, Val Recall: 0.5411
+2025-11-16 01:28:32,751 - src.model_trainer - INFO - 
+==================================================
+2025-11-16 01:28:32,751 - src.model_trainer - INFO - Creating Stacking Ensemble...
+2025-11-16 01:28:32,752 - src.model_trainer - INFO - ==================================================
+2025-11-16 01:30:06,369 - src.model_trainer - INFO - 
+==================================================
+2025-11-16 01:30:06,370 - src.model_trainer - INFO - Training stacking...
+2025-11-16 01:30:06,371 - src.model_trainer - INFO - ==================================================
+2025-11-16 01:31:37,146 - src.model_trainer - INFO - stacking - Training completed in 90.77s
+2025-11-16 01:31:37,146 - src.model_trainer - INFO - Train ROC-AUC: 0.9999, Val ROC-AUC: 0.6892
+2025-11-16 01:31:37,146 - src.model_trainer - INFO - Val Precision: 0.2643, Val Recall: 0.2329
+2025-11-16 01:31:37,146 - src.model_trainer - INFO - 
+==================================================
+2025-11-16 01:31:37,147 - src.model_trainer - INFO - Creating Bagging Ensembles...
+2025-11-16 01:31:37,147 - src.model_trainer - INFO - ==================================================
+2025-11-16 01:31:40,033 - src.model_trainer - INFO - 
+==================================================
+2025-11-16 01:31:40,033 - src.model_trainer - INFO - Training bagging...
+2025-11-16 01:31:40,034 - src.model_trainer - INFO - ==================================================
+2025-11-16 01:31:41,895 - src.model_trainer - INFO - bagging - Training completed in 1.86s
+2025-11-16 01:31:41,896 - src.model_trainer - INFO - Train ROC-AUC: 0.7980, Val ROC-AUC: 0.7999
+2025-11-16 01:31:41,896 - src.model_trainer - INFO - Val Precision: 0.1648, Val Recall: 0.7267
+2025-11-16 01:31:41,896 - src.model_trainer - INFO - 
+==================================================
+2025-11-16 01:31:41,896 - src.model_trainer - INFO - Creating Boosting Ensemble...
+2025-11-16 01:31:41,897 - src.model_trainer - INFO - ==================================================
+2025-11-16 01:32:24,043 - src.model_trainer - INFO - 
+==================================================
+2025-11-16 01:32:24,044 - src.model_trainer - INFO - Training boosting...
+2025-11-16 01:32:24,044 - src.model_trainer - INFO - ==================================================
+2025-11-16 01:33:07,739 - src.model_trainer - INFO - boosting - Training completed in 43.69s
+2025-11-16 01:33:07,739 - src.model_trainer - INFO - Train ROC-AUC: 0.9480, Val ROC-AUC: 0.7851
+2025-11-16 01:33:07,741 - src.model_trainer - INFO - Val Precision: 0.2277, Val Recall: 0.4998
+2025-11-16 01:33:07,744 - src.model_trainer - INFO - 
+======================================================================
+2025-11-16 01:33:07,744 - src.model_trainer - INFO - MODEL COMPARISON
+2025-11-16 01:33:07,745 - src.model_trainer - INFO - ======================================================================
+2025-11-16 01:33:07,768 - __main__ - INFO - 
+======================================================================
+2025-11-16 01:33:07,769 - __main__ - INFO - STEP 4: EVALUATING MODELS
+2025-11-16 01:33:07,769 - __main__ - INFO - ======================================================================
+2025-11-16 01:33:11,685 - __main__ - INFO - ROC curves saved to D:\MLL\credit_default_prediction\results\experiment_20251116_012640_roc_curves.png
+2025-11-16 01:33:12,675 - __main__ - INFO - Precision-Recall curves saved to D:\MLL\credit_default_prediction\results\experiment_20251116_012640_pr_curves.png
+2025-11-16 01:33:16,350 - __main__ - INFO - Confusion matrices saved to D:\MLL\credit_default_prediction\results\experiment_20251116_012640_confusion_matrices.png
+2025-11-16 01:33:16,350 - __main__ - INFO - Evaluation completed!
+2025-11-16 01:33:16,352 - __main__ - INFO - 
+======================================================================
+2025-11-16 01:33:16,356 - __main__ - INFO - STEP 5: SAVING MODELS
+2025-11-16 01:33:16,356 - __main__ - INFO - ======================================================================
+2025-11-16 01:33:16,384 - src.model_trainer - INFO - Model logistic_regression saved to D:\MLL\credit_default_prediction\models/logistic_regression_model.pkl
+2025-11-16 01:33:18,070 - src.model_trainer - INFO - Model random_forest saved to D:\MLL\credit_default_prediction\models/random_forest_model.pkl
+2025-11-16 01:33:18,083 - src.model_trainer - INFO - Model xgboost saved to D:\MLL\credit_default_prediction\models/xgboost_model.pkl
+2025-11-16 01:33:18,105 - src.model_trainer - INFO - Model lightgbm saved to D:\MLL\credit_default_prediction\models/lightgbm_model.pkl
+2025-11-16 01:33:18,116 - src.model_trainer - INFO - Model neural_network saved to D:\MLL\credit_default_prediction\models/neural_network_model.pkl
+2025-11-16 01:33:21,572 - src.model_trainer - INFO - Model voting_hard saved to D:\MLL\credit_default_prediction\models/voting_hard_model.pkl
+2025-11-16 01:33:24,961 - src.model_trainer - INFO - Model voting_soft saved to D:\MLL\credit_default_prediction\models/voting_soft_model.pkl
+2025-11-16 01:33:28,368 - src.model_trainer - INFO - Model stacking saved to D:\MLL\credit_default_prediction\models/stacking_model.pkl
+2025-11-16 01:33:28,379 - src.model_trainer - INFO - Model bagging saved to D:\MLL\credit_default_prediction\models/bagging_model.pkl
+2025-11-16 01:33:28,438 - src.model_trainer - INFO - Model boosting saved to D:\MLL\credit_default_prediction\models/boosting_model.pkl
+2025-11-16 01:33:32,287 - src.model_trainer - INFO - Model voting_soft saved to D:\MLL\credit_default_prediction\models/best_model.pkl
+2025-11-16 01:33:39,077 - src.model_trainer - INFO - All models and results saved to D:\MLL\credit_default_prediction\models
+2025-11-16 01:33:39,082 - src.preprocessing - INFO - Preprocessor saved to D:\MLL\credit_default_prediction\models\preprocessor.pkl
+2025-11-16 01:33:39,082 - __main__ - INFO - All models and artifacts saved successfully!
+2025-11-16 01:33:39,083 - __main__ - INFO - 
+======================================================================
+2025-11-16 01:33:39,084 - __main__ - INFO - PIPELINE COMPLETED SUCCESSFULLY!
+2025-11-16 01:33:39,084 - __main__ - INFO - ======================================================================
+2025-11-16 01:33:39,085 - __main__ - INFO - Total execution time: 418.28 seconds
+2025-11-16 01:33:39,086 - __main__ - INFO - Experiment: experiment_20251116_012640
+2025-11-16 01:33:39,086 - __main__ - INFO - Best model: voting_soft
+2025-11-16 01:33:39,087 - __main__ - INFO - Best ROC-AUC: 0.8011
+2025-11-16 01:33:39,087 - __main__ - INFO - ======================================================================
