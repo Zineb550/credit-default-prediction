@@ -86,3 +86,5 @@ mlruns/
 *.tmp
 *.bak
 *.swp
+"models/" 
+"*.pkl" 
