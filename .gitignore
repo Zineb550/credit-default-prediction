@@ -42,14 +42,12 @@ env/
 # Data
 data/raw/*.csv
 data/processed/*.csv
-*.pkl
+# *.pkl  # COMMENTED OUT - We need model files!
 *.h5
 *.hdf5
 
-# Models (optional - uncomment if you don't want to track models)
-# models/*.pkl
-# models/*.h5
-# models/*.joblib
+# Models - Allow models folder to be tracked
+# (Model files are needed for deployment)
 
 # Logs
 logs/*.log
@@ -86,5 +84,3 @@ mlruns/
 *.tmp
 *.bak
 *.swp
-"models/" 
-"*.pkl" 

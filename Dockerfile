@@ -10,6 +10,8 @@ RUN apt-get update && apt-get install -y \
     cmake \
     build-essential \
     libgomp1 \
+    wget \
+    curl \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements first (for better caching)
@@ -21,12 +23,15 @@ RUN pip install --no-cache-dir --upgrade pip && \
 
 # Copy application code
 COPY app/ ./app/
-COPY models/ ./models/
 COPY src/ ./src/
 COPY config/ ./config/
+COPY start.sh ./start.sh
+
+# Make start script executable
+RUN chmod +x ./start.sh
 
 # Expose port (Render uses PORT env variable)
 EXPOSE 10000
 
-# Run the application
-CMD uvicorn app.api:app --host 0.0.0.0 --port $PORT
+# Use start script that downloads models at runtime
+CMD ["./start.sh"]

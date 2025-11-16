@@ -35,12 +35,18 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Get project root
+# Get project root - works both locally and in Docker
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Load model and preprocessor at startup
-model_path = os.path.join(project_root, "models", "best_model.pkl")
-preprocessor_path = os.path.join(project_root, "models", "preprocessor.pkl")
+# Determine models directory
+if os.path.exists('/app/models'):
+    models_dir = '/app/models'
+else:
+    models_dir = os.path.join(project_root, "models")
+
+# Load model and preprocessor
+model_path = os.path.join(models_dir, "best_model.pkl")
+preprocessor_path = os.path.join(models_dir, "preprocessor.pkl")
 
 try:
     model = joblib.load(model_path)
